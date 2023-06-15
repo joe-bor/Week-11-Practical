@@ -4,7 +4,7 @@ const todoSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-    unique: true,
+    // unique: true,
     trim: true, // takes out whitespace on both ends of the input
   },
   description: {
