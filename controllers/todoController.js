@@ -9,6 +9,10 @@ exports.getTodoList = async (req, res) => {
   }
 };
 
+exports.newTodo = (req, res) => {
+  res.render("todos/New");
+};
+
 exports.createTodo = async (req, res) => {
   try {
     const todo = await Todo.create(req.body);

@@ -4,12 +4,17 @@ const todoSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-    // unique: true,
+    unique: true,
     trim: true, // takes out whitespace on both ends of the input
   },
   description: {
     type: String,
     trim: true,
+  },
+  when: {
+    type: String,
+    enum: ["Today", "This Week", "This Month"],
+    default: "Today",
   },
   completed: {
     type: Boolean,
