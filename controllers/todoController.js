@@ -25,7 +25,9 @@ exports.createTodo = async (req, res) => {
 exports.showTodo = async (req, res) => {
   try {
     const todo = await Todo.findById({ _id: req.params.id });
-    res.json(todo);
+    res.render("todos/Show", {
+      todo,
+    });
   } catch (error) {
     res.status(400).send({ message: error.message });
   }
