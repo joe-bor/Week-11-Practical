@@ -31,7 +31,23 @@ exports.showTodo = async (req, res) => {
   }
 };
 
+exports.editTodo = async (req, res) => {
+  try {
+    const todo = await Todo.findById({ _id: req.params.id });
+    res.render("todos/Edit", {
+      todo: todo,
+    });
+  } catch (error) {
+    res.status(400).send({ message: error.message });
+  }
+};
+
 exports.updateTodo = async (req, res) => {
+  if (req.body.completed === "on") {
+    req.body.completed = true;
+  } else {
+    req.body.completed = false;
+  }
   try {
     const todo = await Todo.findByIdAndUpdate(
       { _id: req.params.id },

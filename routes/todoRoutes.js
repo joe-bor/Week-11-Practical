@@ -3,10 +3,10 @@ const router = express.Router();
 const todoController = require("../controllers/todoController");
 
 // Index
+//TODO
 router.get("/", todoController.getTodoList);
 
 // New
-//TODO: form for creating
 router.get("/new", todoController.newTodo);
 
 // Create
@@ -16,12 +16,13 @@ router.post("/", todoController.createTodo);
 router.delete("/:id", todoController.deleteTodo);
 
 // Edit
-//TODO: form for editing
+router.get("/:id/edit", todoController.editTodo);
 
 //Update
 router.put("/:id", todoController.updateTodo);
 
 // Show
+//TODO
 router.get("/:id", todoController.showTodo);
 
 module.exports = router;
