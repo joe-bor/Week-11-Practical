@@ -3,7 +3,9 @@ const Todo = require("../models/todo");
 exports.getTodoList = async (req, res) => {
   try {
     const todoList = await Todo.find({});
-    res.json(todoList);
+    res.render("todos/Index", {
+      todo: todoList,
+    });
   } catch (error) {
     res.status(400).send({ message: error.message });
   }
